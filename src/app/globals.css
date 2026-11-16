@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "../design-system/tokens/palette.css";
 @import "../design-system/tokens/theme.css";
+@import "../design-system/tokens/motion.css";
 
 @layer base {
   html {

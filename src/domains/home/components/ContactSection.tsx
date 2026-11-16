@@ -11,7 +11,7 @@ export function ContactSection() {
 
   return (
     <section id={CONTACT_ID} aria-labelledby={`${CONTACT_ID}-title`} className="scroll-mt-24 border-t border-line bg-soft py-16 sm:py-20">
-      <Container className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+      <Container className="ds-reveal-children grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
         <div className="flex flex-col gap-4">
           <span className="text-sm font-bold uppercase tracking-wider text-link">{t("eyebrow")}</span>
           <h2 id={`${CONTACT_ID}-title`} className="font-display text-3xl tracking-tight text-ink sm:text-4xl">

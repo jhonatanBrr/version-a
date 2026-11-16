@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/design-system/components/Button";
 import { FilterChip } from "@/design-system/components/FilterChip";
@@ -74,17 +75,26 @@ export function CatalogBrowser({ products, categories, query, onClearQuery }: Ca
       </p>
 
       {filters.results.length > 0 ? (
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        // Re-keyed on every filter change so the cards replay their staggered entrance.
+        <ul
+          key={`${filters.category}|${filters.formats.join(",")}|${trimmedQuery}`}
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {filters.results.map((product, index) => (
-            <li key={product.id} className="flex">
-              <ProductCard
-                product={product}
-                categoryLabel={categoryLabel(product.category)}
-                detailsLabel={t("details")}
-                priority={index < 3}
-                className="w-full"
-                action={<AddToCartButton product={product} />}
-              />
+            <li key={product.id} className="ds-reveal flex">
+              <div
+                className="ds-enter flex w-full"
+                style={{ "--ds-delay": `${Math.min(index, 8) * 60}ms` } as CSSProperties}
+              >
+                <ProductCard
+                  product={product}
+                  categoryLabel={categoryLabel(product.category)}
+                  detailsLabel={t("details")}
+                  priority={index < 3}
+                  className="w-full"
+                  action={<AddToCartButton product={product} />}
+                />
+              </div>
             </li>
           ))}
         </ul>

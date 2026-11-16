@@ -25,7 +25,8 @@ export function BuyBox(props: BuyBoxProps) {
       )}
       <QuantityStepper value={quantity} onChange={setQuantity} />
 
-      <div className="flex flex-col gap-1">
+      {/* Re-keyed when the total changes so the price gets a short highlight. */}
+      <div key={totals.total} className="ds-pulse -mx-2 flex flex-col gap-1 px-2 py-1">
         <Price
           size="lg"
           amount={totals.total}
@@ -54,10 +55,10 @@ export function BuyBox(props: BuyBoxProps) {
       </div>
       <p role="status" className="flex min-h-6 items-center gap-2 text-sm font-bold text-link">
         {addedCount !== null && (
-          <>
+          <span key={addedCount} className="ds-pop inline-flex items-center gap-2">
             <CheckIcon size={16} aria-hidden="true" />
             {t("added", { count: addedCount })}
-          </>
+          </span>
         )}
       </p>
     </section>

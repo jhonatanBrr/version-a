@@ -34,7 +34,7 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
           added ? "bg-strong text-white" : "bg-primary text-on-primary hover:bg-primary-hover",
         )}
       >
-        {added ? <CheckIcon size={20} /> : <CartIcon size={20} />}
+        {added ? <CheckIcon key="added" size={20} className="ds-pop" /> : <CartIcon key="cart" size={20} />}
       </button>
       <span role="status" className="sr-only">
         {added ? t("added", { name: product.name }) : ""}

@@ -12,7 +12,7 @@ export function CatalogSection({ products, categories }: CatalogData) {
   return (
     <section id={CATALOG_ID} aria-labelledby={`${CATALOG_ID}-title`} className="scroll-mt-24 bg-bg py-16 sm:py-20">
       <Container className="flex flex-col gap-8">
-        <header className="flex flex-col gap-2">
+        <header className="ds-reveal flex flex-col gap-2">
           <span className="text-sm font-bold uppercase tracking-wider text-link">{t("eyebrow")}</span>
           <h2 id={`${CATALOG_ID}-title`} className="font-display text-3xl tracking-tight text-ink sm:text-4xl">
             {t("title")}

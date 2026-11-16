@@ -30,7 +30,7 @@ export function buttonClasses({
   fullWidth = false,
 }: ButtonStyleProps = {}): string {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-ds font-bold transition-colors",
+    "inline-flex items-center justify-center gap-2 rounded-ds font-bold transition-[color,background-color,border-color,transform] duration-150 active:scale-[.98] motion-reduce:active:scale-100",
     "disabled:cursor-not-allowed disabled:opacity-60",
     variants[variant],
     sizes[size],

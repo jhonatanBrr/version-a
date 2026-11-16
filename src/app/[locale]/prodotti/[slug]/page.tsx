@@ -60,21 +60,33 @@ export default async function ProductPage({ params }: Props) {
         // Escapes "<" so catalog text can never close the script tag.
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
-      <ProductBreadcrumb kind={product.kind} categoryLabel={categoryLabel} current={shortName(product)} />
+      <div className="ds-enter">
+        <ProductBreadcrumb kind={product.kind} categoryLabel={categoryLabel} current={shortName(product)} />
+      </div>
 
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-        <div className="lg:sticky lg:top-24 lg:self-start">
+        <div className="ds-enter-scale ds-delay-1 lg:sticky lg:top-24 lg:self-start">
           <ProductGallery product={product} />
         </div>
         <div className="flex flex-col gap-6">
-          <ProductSummary product={product} categoryLabel={categoryLabel} />
-          <BuyBox productId={product.id} editions={editions} />
-          <DeliveryInfo product={product} />
-          <ProductDetails product={product} categoryLabel={categoryLabel} />
+          <div className="ds-enter ds-delay-2">
+            <ProductSummary product={product} categoryLabel={categoryLabel} />
+          </div>
+          <div className="ds-enter ds-delay-3">
+            <BuyBox productId={product.id} editions={editions} />
+          </div>
+          <div className="ds-enter ds-delay-4">
+            <DeliveryInfo product={product} />
+          </div>
+          <div className="ds-enter ds-delay-5">
+            <ProductDetails product={product} categoryLabel={categoryLabel} />
+          </div>
         </div>
       </div>
 
-      <RelatedProducts products={related} categories={categories} />
+      <div className="ds-reveal">
+        <RelatedProducts products={related} categories={categories} />
+      </div>
     </Container>
   );
 }

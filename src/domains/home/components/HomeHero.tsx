@@ -22,15 +22,15 @@ export function HomeHero({ featured, productCount }: HomeHeroProps) {
     <section aria-labelledby="hero-title" className="border-b border-line bg-linear-to-br from-soft via-soft to-surface">
       <Container className="grid items-center gap-10 py-14 sm:py-16 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:py-24">
         <div className="flex flex-col gap-6">
-          <span className="text-sm font-bold uppercase tracking-wider text-link">{t("eyebrow")}</span>
+          <span className="ds-enter text-sm font-bold uppercase tracking-wider text-link">{t("eyebrow")}</span>
           <h1
             id="hero-title"
-            className="font-display text-4xl leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[56px]"
+            className="ds-enter ds-delay-1 font-display text-4xl leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[56px]"
           >
             {t("title")}
           </h1>
-          <p className="max-w-xl text-lg leading-relaxed text-muted sm:text-[21px]">{t("subtitle")}</p>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <p className="ds-enter ds-delay-2 max-w-xl text-lg leading-relaxed text-muted sm:text-[21px]">{t("subtitle")}</p>
+          <div className="ds-enter ds-delay-3 flex flex-col gap-3 sm:flex-row">
             <a href={`#${CATALOG_ID}`} className={buttonClasses({ size: "lg" })}>
               {t("primaryCta")}
               <ArrowRightIcon size={18} />
@@ -39,7 +39,7 @@ export function HomeHero({ featured, productCount }: HomeHeroProps) {
               {t("secondaryCta")}
             </a>
           </div>
-          <ul aria-label={t("stats.label")} className="flex flex-col gap-2 pt-2 text-sm font-medium text-ink sm:flex-row sm:flex-wrap sm:gap-x-6">
+          <ul aria-label={t("stats.label")} className="ds-enter ds-delay-4 flex flex-col gap-2 pt-2 text-sm font-medium text-ink sm:flex-row sm:flex-wrap sm:gap-x-6">
             {stats.map((stat) => (
               <li key={stat} className="flex items-center gap-2">
                 <CheckIcon size={16} className="text-link" />
@@ -51,7 +51,7 @@ export function HomeHero({ featured, productCount }: HomeHeroProps) {
 
         <article
           aria-label={t("featuredLabel")}
-          className="group relative flex flex-col overflow-hidden rounded-ds border border-line bg-surface shadow-[0_30px_60px_-30px_rgb(var(--ds-shadow)/0.45)]"
+          className="ds-enter-scale ds-delay-2 group relative flex flex-col overflow-hidden rounded-ds border border-line bg-surface transition-[transform,box-shadow] duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0 shadow-[0_30px_60px_-30px_rgb(var(--ds-shadow)/0.45)]"
         >
           <div className="relative aspect-[4/3] bg-paper">
             <Image
@@ -60,7 +60,7 @@ export function HomeHero({ featured, productCount }: HomeHeroProps) {
               fill
               priority
               sizes="(min-width: 1024px) 520px, 100vw"
-              className="object-cover [[data-theme=dark]_&]:brightness-[.85] [[data-theme=dark]_&]:saturate-[.7]"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none [[data-theme=dark]_&]:brightness-[.85] [[data-theme=dark]_&]:saturate-[.7]"
             />
             {featured.isNew && (
               <Badge tone="solid" className="absolute left-4 top-4 text-sm">
