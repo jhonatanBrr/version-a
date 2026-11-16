@@ -31,7 +31,10 @@
     "openMenu": "Apri menu",
     "closeMenu": "Chiudi menu",
     "language": "Lingua",
-    "languages": { "it": "Italiano", "es": "Español" },
+    "languages": {
+      "it": "Italiano",
+      "es": "Español"
+    },
     "themeToDark": "Attiva tema scuro",
     "themeToLight": "Attiva tema chiaro"
   },
@@ -51,7 +54,10 @@
     "corso-online": "Corso online",
     "in-presenza": "In presenza"
   },
-  "kinds": { "test": "Test", "course": "Corso" },
+  "kinds": {
+    "test": "Test",
+    "course": "Corso"
+  },
   "product": {
     "authors": "Autori",
     "teacher": "Docente",
@@ -62,8 +68,11 @@
     "vatIncluded": "IVA inclusa"
   },
   "notFound": {
-    "title": "Pagina non trovata",
-    "text": "Il contenuto che cerchi non esiste o è stato spostato.",
-    "back": "Torna al catalogo"
+    "eyebrow": "Errore 404",
+    "title": "Questa pagina manca all'appello",
+    "text": "Il contenuto che cerchi non esiste o è stato spostato. Nel catalogo trovi test e corsi aggiornati, oppure scrivici e ti aiutiamo noi.",
+    "back": "Torna al catalogo",
+    "contact": "Contattaci",
+    "illustration": "Un questionario sotto una lente d'ingrandimento: nel numero 404 lo zero è un pezzo di puzzle mancante."
   }
 }
