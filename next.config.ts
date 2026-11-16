@@ -5,7 +5,8 @@ const withNextIntl = createNextIntlPlugin("./src/shared/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [new URL("https://images.unsplash.com/**")],
+    // Object form: unlike `new URL(...)`, it allows the query string Unsplash needs (crop, format).
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com", pathname: "/**" }],
     qualities: [75],
   },
   turbopack: {

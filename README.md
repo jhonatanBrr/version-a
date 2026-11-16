@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Version A — Giunti Psychometrics catalog (Next.js)
 
-## Getting Started
+Italian product-catalog landing for Giunti Psychometrics: psychological tests and training courses, with a product page and a client-side checkout. Built with **Next.js 16 (App Router) · Tailwind CSS 4 · strict TypeScript**, translated to Italian (default) and Spanish, with light and dark themes.
 
-First, run the development server:
+## Quick path
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd version-a
+npm install
+npm run dev        # http://localhost:3000 → redirects to /it
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Goal | Command |
+|------|---------|
+| Development server | `npm run dev` |
+| Production build | `npm run build` |
+| Serve the build | `npm run start` |
+| Unit tests (Vitest) | `npm test` |
+| Lint (ESLint flat config) | `npm run lint` |
+| Type check | `npm run typecheck` |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Versions used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Tool | Version |
+|------|---------|
+| Node.js | 22.13.1 |
+| npm | 10.9.2 |
+| Next.js | 16.4.6 |
+| React | 19.3.0 |
+| Tailwind CSS | 4.3.3 |
+| next-intl | 4.15.1 |
+| PHP / Composer | Not used in Version A (see `version-b`) |
 
-## Learn More
+## Routes and rendering
 
-To learn more about Next.js, take a look at the following resources:
+| Route | Domain | Rendering |
+|-------|--------|-----------|
+| `/[locale]` | Home: hero, catalog, contact form | SSR on every request (`dynamic = "force-dynamic"`); filters run on the client |
+| `/[locale]/prodotti/[slug]` | Product page | SSR on every request, `notFound()` for unknown slugs, per-product metadata and JSON-LD |
+| `/[locale]/checkout` | Checkout | Static shell + client rendering (cart lives in `localStorage`) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Locales: `it` (default) and `es`. `src/proxy.ts` (Next 16's replacement for `middleware.ts`) redirects `/` to `/it`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture
 
-## Deploy on Vercel
+```text
+src/
+├── app/[locale]/          # Routes only: compose domains, load data, set metadata
+├── design-system/         # Everything global and reusable
+│   ├── tokens/            # palette.css (colors) + theme.css (Tailwind mapping)
+│   ├── components/        # Button, Badge, Price, FilterChip, Field, ThemeToggle…
+│   ├── patterns/          # ProductCard (used by Home and Product)
+│   ├── layout/            # SiteHeader (search, language, theme, cart), SiteFooter
+│   ├── hooks/             # useTheme (dark mode + circular reveal)
+│   └── utils/             # cn, formatPrice
+├── domains/               # One folder per page, only domain-specific code
+│   ├── home/              # components · interfaces · hooks · utils
+│   ├── product/
+│   └── checkout/
+└── shared/                # Non-UI code used by several domains
+    ├── catalog/           # Typed mock data + async queries
+    ├── cart/              # Cart reducer + provider
+    └── i18n/              # next-intl routing, navigation, request config
+messages/{it,es}/          # One JSON file per namespace: common, home, product, checkout
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Rule of thumb: if only one page uses it, it lives in `domains/<page>`; if it is UI shared across pages, it lives in `design-system`; shared non-UI logic (data, cart, i18n) lives in `shared`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Changing the colors
+
+All colors live in **one file**: `src/design-system/tokens/palette.css`.
+
+1. Edit the four brand colors (`--brand-primary`, `--brand-text`, `--brand-accent`, `--brand-background`) to rebrand the whole site.
+2. Adjust semantic tokens (`--ds-surface`, `--ds-ink`, `--ds-line`…) per theme if needed.
+3. Components only use semantic utilities (`bg-surface`, `text-ink`, `border-line`, `bg-primary`), so nothing else changes.
+
+## Features checklist
+
+- [x] Header: logo, navigation (Test, Formazione, Risorse, Contatti), “Accedi” button, product search filtering the grid by name
+- [x] Hero with gradient/image background and “Esplora il catalogo” CTA
+- [x] Product cards: image, name, author/teacher, age range or start date, original + discounted price (`1.250,00 €`), format badge, action button
+- [x] Grid: 3 columns desktop, 2 tablet, 1 mobile
+- [x] Client-side category filter with “Tutti” (plus format filter)
+- [x] Contact form with validation, visible errors and success state
+- [x] Footer: logo, links, social placeholders, copyright
+- [x] Light/dark theme with circular reveal transition; IT/ES language switch
+
+## Assumptions
+
+- Product data is mock and fictional (no real test names), but follows how assessment products are sold: age range, administration time, qualification level, kits and refills.
+- Product images are generic Unsplash photos chosen to match each item.
+- No payment gateway: checkout validates the form and simulates a confirmed order. No card data is requested.
+- `cacheComponents` (Next 16) is disabled to keep classic, explicit per-request SSR for Home and Product.
+- The header search filters the catalog live through the `?q=` query param; from other pages it takes you to the filtered catalog.
+
+## Proposed improvements
+
+- Migrate next-intl's deprecated `requestLocale` to `next/root-params` once it is stable.
+- Real cart drawer and server-side cart/session; real payment provider integration (hosted fields).
+- Component tests (React Testing Library) and end-to-end tests (Playwright) for filters and checkout.
+- Localized slugs and `hreflang` alternates for SEO.

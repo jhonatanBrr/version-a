@@ -77,9 +77,11 @@ export function SiteHeader() {
             </Suspense>
             <div className="hidden md:block">{languageSwitch(false)}</div>
             <ThemeToggle labels={{ toDark: t("themeToDark"), toLight: t("themeToLight") }} />
-            <ButtonLink href="/" variant="soft" className="hidden lg:inline-flex">
-              {t("login")}
-            </ButtonLink>
+            <div className="hidden lg:block">
+              <ButtonLink href="/" variant="soft">
+                {t("login")}
+              </ButtonLink>
+            </div>
             <Link
               href="/checkout"
               aria-label={t("cart", { count })}
@@ -129,9 +131,11 @@ export function SiteHeader() {
               {t(`nav.${item.key}`)}
             </Link>
           ))}
-          <ButtonLink href="/" variant="soft" fullWidth className="mt-3 lg:hidden">
-            {t("login")}
-          </ButtonLink>
+          <div className="mt-3 lg:hidden">
+            <ButtonLink href="/" variant="soft" fullWidth>
+              {t("login")}
+            </ButtonLink>
+          </div>
         </nav>
       </header>
     </>
