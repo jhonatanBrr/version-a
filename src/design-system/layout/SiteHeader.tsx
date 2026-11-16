@@ -80,9 +80,21 @@ export function SiteHeader() {
             <ButtonLink href="/" variant="soft" className="hidden lg:inline-flex">
               {t("login")}
             </ButtonLink>
-            <IconButton label={t("cart", { count })} badge={count}>
+            <Link
+              href="/checkout"
+              aria-label={t("cart", { count })}
+              className="relative inline-flex size-11 items-center justify-center rounded-ds text-ink transition-colors hover:bg-soft"
+            >
               <CartIcon size={22} />
-            </IconButton>
+              {count > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute right-0.5 top-0.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-ds bg-primary px-1 text-[11px] font-bold tabular-nums text-on-primary"
+                >
+                  {count}
+                </span>
+              )}
+            </Link>
             <IconButton
               label={menuOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={menuOpen}
