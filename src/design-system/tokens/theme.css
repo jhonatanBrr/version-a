@@ -1,0 +1,31 @@
+/*
+ * Tailwind theme: maps semantic tokens (palette.css) to utilities.
+ * `inline` keeps the CSS variables live, so switching data-theme
+ * re-colors every utility without rebuilding classes.
+ */
+@theme inline {
+  --color-bg: var(--ds-bg);
+  --color-surface: var(--ds-surface);
+  --color-soft: var(--ds-soft);
+  --color-soft-2: var(--ds-soft-2);
+  --color-soft-hover: var(--ds-soft-hover);
+  --color-strong: var(--ds-strong);
+  --color-ink: var(--ds-ink);
+  --color-muted: var(--ds-muted);
+  --color-line: var(--ds-line);
+  --color-line-strong: var(--ds-line-strong);
+  --color-link: var(--ds-link);
+  --color-primary: var(--ds-primary);
+  --color-primary-hover: var(--ds-primary-hover);
+  --color-on-primary: var(--ds-on-primary);
+  --color-accent: var(--ds-accent);
+  --color-focus: var(--ds-focus);
+  --color-danger: var(--ds-danger);
+  --color-paper: var(--ds-paper);
+  --color-paper-ink: var(--ds-paper-ink);
+
+  --radius-ds: 6px;
+
+  --font-sans: var(--font-noto-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-inter-tight), var(--font-noto-sans), sans-serif;
+}

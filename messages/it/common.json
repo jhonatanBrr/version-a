@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "siteName": "Giunti Psychometrics",
+    "defaultTitle": "Giunti Psychometrics Italia — Test psicologici e formazione",
+    "defaultDescription": "Test psicologici validati e corsi di formazione per clinici, scuole e organizzazioni."
+  },
+  "a11y": {
+    "skipToContent": "Vai al contenuto",
+    "currentPrice": "Prezzo scontato",
+    "originalPrice": "Prezzo originale"
+  },
+  "topBar": {
+    "shipping": "Spedizioni gratuite per gli ordini online",
+    "corporate": "Corporate",
+    "help": "Aiuto",
+    "platform": "Accesso alla piattaforma"
+  },
+  "header": {
+    "homeLabel": "Giunti Psychometrics, home",
+    "mainNav": "Navigazione principale",
+    "nav": {
+      "test": "Test",
+      "training": "Formazione",
+      "resources": "Risorse",
+      "contacts": "Contatti"
+    },
+    "login": "Accedi",
+    "searchLabel": "Cerca prodotti",
+    "searchPlaceholder": "Cerca test o corsi",
+    "cart": "Carrello, {count, plural, =0 {nessun articolo} one {# articolo} other {# articoli}}",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu",
+    "language": "Lingua",
+    "languages": { "it": "Italiano", "es": "Español" },
+    "themeToDark": "Attiva tema scuro",
+    "themeToLight": "Attiva tema chiaro"
+  },
+  "footer": {
+    "tagline": "Test psicologici e formazione per professionisti in Italia, Europa e America Latina.",
+    "navLabel": "Link del footer",
+    "products": "Prodotti",
+    "company": "Azienda",
+    "about": "Chi siamo",
+    "privacy": "Privacy",
+    "follow": "Seguici",
+    "copyright": "© {year} Giunti Psychometrics. Tutti i diritti riservati."
+  },
+  "formats": {
+    "cartaceo": "Cartaceo",
+    "digitale": "Digitale",
+    "corso-online": "Corso online",
+    "in-presenza": "In presenza"
+  },
+  "kinds": { "test": "Test", "course": "Corso" },
+  "product": {
+    "authors": "Autori",
+    "teacher": "Docente",
+    "age": "Età",
+    "ageRange": "{min}–{max} anni",
+    "ageFrom": "Dai {min} anni",
+    "start": "Inizio",
+    "vatIncluded": "IVA inclusa"
+  },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "text": "Il contenuto che cerchi non esiste o è stato spostato.",
+    "back": "Torna al catalogo"
+  }
+}

@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "../design-system/tokens/palette.css";
+@import "../design-system/tokens/theme.css";
+
+@layer base {
+  html {
+    background: var(--ds-bg);
+    color: var(--ds-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-semibold;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ds-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Theme switch: circular reveal driven by the View Transitions API. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}

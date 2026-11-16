@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "siteName": "Giunti Psychometrics",
+    "defaultTitle": "Giunti Psychometrics Italia — Tests psicológicos y formación",
+    "defaultDescription": "Tests psicológicos validados y cursos de formación para clínicos, escuelas y organizaciones."
+  },
+  "a11y": {
+    "skipToContent": "Ir al contenido",
+    "currentPrice": "Precio con descuento",
+    "originalPrice": "Precio original"
+  },
+  "topBar": {
+    "shipping": "Envío gratuito en pedidos online",
+    "corporate": "Corporativo",
+    "help": "Ayuda",
+    "platform": "Acceso a la plataforma"
+  },
+  "header": {
+    "homeLabel": "Giunti Psychometrics, inicio",
+    "mainNav": "Navegación principal",
+    "nav": {
+      "test": "Tests",
+      "training": "Formación",
+      "resources": "Recursos",
+      "contacts": "Contacto"
+    },
+    "login": "Acceder",
+    "searchLabel": "Buscar productos",
+    "searchPlaceholder": "Buscar tests o cursos",
+    "cart": "Carrito, {count, plural, =0 {sin artículos} one {# artículo} other {# artículos}}",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "language": "Idioma",
+    "languages": { "it": "Italiano", "es": "Español" },
+    "themeToDark": "Activar tema oscuro",
+    "themeToLight": "Activar tema claro"
+  },
+  "footer": {
+    "tagline": "Tests psicológicos y formación para profesionales en Italia, Europa y América Latina.",
+    "navLabel": "Enlaces del pie de página",
+    "products": "Productos",
+    "company": "Empresa",
+    "about": "Quiénes somos",
+    "privacy": "Privacidad",
+    "follow": "Síguenos",
+    "copyright": "© {year} Giunti Psychometrics. Todos los derechos reservados."
+  },
+  "formats": {
+    "cartaceo": "En papel",
+    "digitale": "Digital",
+    "corso-online": "Curso online",
+    "in-presenza": "Presencial"
+  },
+  "kinds": { "test": "Test", "course": "Curso" },
+  "product": {
+    "authors": "Autores",
+    "teacher": "Docente",
+    "age": "Edad",
+    "ageRange": "{min}–{max} años",
+    "ageFrom": "Desde {min} años",
+    "start": "Inicio",
+    "vatIncluded": "IVA incluido"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "text": "El contenido que buscas no existe o se ha movido.",
+    "back": "Volver al catálogo"
+  }
+}
