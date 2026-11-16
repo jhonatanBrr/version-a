@@ -1,11 +1,16 @@
 # Version A — Giunti Psychometrics catalog (Next.js)
 
+🌐 **English** · [Español](README.es.md) · [Italiano](README.it.md)
+
 Italian product-catalog landing for Giunti Psychometrics: psychological tests and training courses, with a product page and a client-side checkout. Built with **Next.js 16 (App Router) · Tailwind CSS 4 · strict TypeScript**, translated to Italian (default) and Spanish, with light and dark themes.
 
 ## Quick path
 
+> Requires **Node.js 20.9 or later** (tested with Node 22.13.1 and npm 10.9.2).
+
 ```bash
-cd version-a
+git clone <repository-url>
+cd <repository>/version-a
 npm install
 npm run dev        # http://localhost:3000 → redirects to /it
 ```
@@ -23,7 +28,7 @@ npm run dev        # http://localhost:3000 → redirects to /it
 
 | Tool | Version |
 |------|---------|
-| Node.js | 22.13.1 |
+| Node.js | 22.13.1 (minimum 20.9) |
 | npm | 10.9.2 |
 | Next.js | 16.4.6 |
 | React | 19.3.0 |
@@ -38,6 +43,8 @@ npm run dev        # http://localhost:3000 → redirects to /it
 | `/[locale]` | Home: hero, catalog, contact form | SSR on every request (`dynamic = "force-dynamic"`); filters run on the client |
 | `/[locale]/prodotti/[slug]` | Product page | SSR on every request, `notFound()` for unknown slugs, per-product metadata and JSON-LD |
 | `/[locale]/checkout` | Checkout | Static shell + client rendering (cart lives in `localStorage`) |
+| `/[locale]/in-arrivo` | Sections outside the test scope (Accedi, Corporate…) | SSR |
+| Any other path | Illustrated, translated 404 page | SSR |
 
 Locales: `it` (default) and `es`. `src/proxy.ts` (Next 16's replacement for `middleware.ts`) redirects `/` to `/it`.
 
@@ -50,9 +57,10 @@ src/
 │   ├── tokens/            # palette.css (colors) + theme.css (Tailwind mapping)
 │   ├── components/        # Button, Badge, Price, FilterChip, Field, ThemeToggle…
 │   ├── patterns/          # ProductCard (used by Home and Product)
+│   ├── illustrations/     # SVG illustrations (404, "coming soon")
 │   ├── layout/            # SiteHeader (search, language, theme, cart), SiteFooter
 │   ├── hooks/             # useTheme (dark mode + circular reveal)
-│   └── utils/             # cn, formatPrice
+│   └── utils/             # cn, formatPrice, coming-soon
 ├── domains/               # One folder per page, only domain-specific code
 │   ├── home/              # components · interfaces · hooks · utils
 │   ├── product/
@@ -84,6 +92,7 @@ All colors live in **one file**: `src/design-system/tokens/palette.css`.
 - [x] Contact form with validation, visible errors and success state
 - [x] Footer: logo, links, social placeholders, copyright
 - [x] Light/dark theme with circular reveal transition; IT/ES language switch
+- [x] Product page with editions, quantity and cart; demo checkout
 
 ## Assumptions
 
@@ -92,6 +101,14 @@ All colors live in **one file**: `src/design-system/tokens/palette.css`.
 - No payment gateway: checkout validates the form and simulates a confirmed order. No card data is requested.
 - `cacheComponents` (Next 16) is disabled to keep classic, explicit per-request SSR for Home and Product.
 - The header search filters the catalog live through the `?q=` query param; from other pages it takes you to the filtered catalog.
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| `npm install` fails or Next does not start | Check `node -v` is 20.9 or later |
+| Port 3000 is busy | `npm run dev -- -p 3001` |
+| Product images do not load | They need internet access (served from `images.unsplash.com`) |
 
 ## Proposed improvements
 
