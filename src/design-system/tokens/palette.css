@@ -39,6 +39,11 @@
   --ds-paper-ink: var(--brand-text);
   --ds-shadow: 15 45 82;
 
+  /* Illustration accents (sticky notes in empty states) */
+  --ds-note: #fde68a;
+  --ds-note-strong: #fcd34d;
+  --ds-note-ink: #92400e;
+
   color-scheme: light;
 }
 

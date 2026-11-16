@@ -11,12 +11,13 @@ import { LanguageSwitch } from "../components/LanguageSwitch";
 import { Logo } from "../components/Logo";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { cn } from "../utils/cn";
+import { comingSoonHref } from "../utils/coming-soon";
 import { HeaderSearch } from "./HeaderSearch";
 
 const NAV = [
   { key: "test", href: "/#catalogo" },
   { key: "training", href: "/#catalogo" },
-  { key: "resources", href: "/#catalogo" },
+  { key: "resources", href: comingSoonHref("resources") },
   { key: "contacts", href: "/#contatti" },
 ] as const;
 
@@ -42,9 +43,9 @@ export function SiteHeader() {
             {top("shipping")}
           </span>
           <nav aria-label={top("corporate")} className="hidden items-center gap-7 md:flex">
-            <Link href="/" className="hover:text-link hover:underline">{top("corporate")}</Link>
-            <Link href="/#contatti" className="hover:text-link hover:underline">{top("help")}</Link>
-            <Link href="/" className="inline-flex items-center gap-1 hover:text-link hover:underline">
+            <Link href={comingSoonHref("corporate")} className="hover:text-link hover:underline">{top("corporate")}</Link>
+            <Link href={comingSoonHref("help")} className="hover:text-link hover:underline">{top("help")}</Link>
+            <Link href={comingSoonHref("platform")} className="inline-flex items-center gap-1 hover:text-link hover:underline">
               {top("platform")}
               <ChevronDownIcon size={14} />
             </Link>
@@ -78,7 +79,7 @@ export function SiteHeader() {
             <div className="hidden md:block">{languageSwitch(false)}</div>
             <ThemeToggle labels={{ toDark: t("themeToDark"), toLight: t("themeToLight") }} />
             <div className="hidden lg:block">
-              <ButtonLink href="/" variant="soft">
+              <ButtonLink href={comingSoonHref("login")} variant="soft">
                 {t("login")}
               </ButtonLink>
             </div>
@@ -132,7 +133,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <div className="mt-3 lg:hidden">
-            <ButtonLink href="/" variant="soft" fullWidth>
+            <ButtonLink href={comingSoonHref("login")} variant="soft" fullWidth>
               {t("login")}
             </ButtonLink>
           </div>

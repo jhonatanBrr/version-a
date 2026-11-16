@@ -74,5 +74,30 @@
     "back": "Torna al catalogo",
     "contact": "Contattaci",
     "illustration": "Un questionario sotto una lente d'ingrandimento: nel numero 404 lo zero è un pezzo di puzzle mancante."
+  },
+  "comingSoon": {
+    "metaTitle": "Sezione in arrivo",
+    "eyebrow": "Prova tecnica",
+    "title": "Questa sezione è in arrivo",
+    "titleSection": "«{section}» è in arrivo",
+    "text": "Questo sito è una prova tecnica: alcuni link servono solo a mostrare la navigazione completa e per ora non portano a una pagina reale.",
+    "available": {
+      "catalog": "Catalogo con ricerca e filtri",
+      "product": "Pagina prodotto con edizioni e carrello",
+      "checkout": "Checkout dimostrativo"
+    },
+    "toCatalog": "Vai al catalogo",
+    "toHome": "Torna alla home",
+    "illustration": "Una pagina web ancora in bozza: blocchi tratteggiati da completare, una matita che disegna e un post-it con la lista delle cose da fare.",
+    "sections": {
+      "corporate": "Corporate",
+      "help": "Aiuto",
+      "platform": "Accesso alla piattaforma",
+      "login": "Accedi",
+      "resources": "Risorse",
+      "about": "Chi siamo",
+      "privacy": "Privacy",
+      "social": "Social"
+    }
   }
 }

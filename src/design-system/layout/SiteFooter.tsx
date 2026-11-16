@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/shared/i18n/navigation";
 import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "../components/icons";
 import { Logo } from "../components/Logo";
+import { comingSoonHref } from "../utils/coming-soon";
 
 const SOCIALS = [
   { label: "LinkedIn", Icon: LinkedinIcon },
@@ -28,13 +29,13 @@ export async function SiteFooter() {
               <span className="font-bold">{t("products")}</span>
               <Link href="/#catalogo" className="text-muted hover:text-ink">{nav("test")}</Link>
               <Link href="/#catalogo" className="text-muted hover:text-ink">{nav("training")}</Link>
-              <Link href="/#catalogo" className="text-muted hover:text-ink">{nav("resources")}</Link>
+              <Link href={comingSoonHref("resources")} className="text-muted hover:text-ink">{nav("resources")}</Link>
             </div>
             <div className="flex flex-col gap-3">
               <span className="font-bold">{t("company")}</span>
-              <Link href="/" className="text-muted hover:text-ink">{t("about")}</Link>
+              <Link href={comingSoonHref("about")} className="text-muted hover:text-ink">{t("about")}</Link>
               <Link href="/#contatti" className="text-muted hover:text-ink">{nav("contacts")}</Link>
-              <Link href="/" className="text-muted hover:text-ink">{t("privacy")}</Link>
+              <Link href={comingSoonHref("privacy")} className="text-muted hover:text-ink">{t("privacy")}</Link>
             </div>
           </nav>
 
@@ -43,13 +44,13 @@ export async function SiteFooter() {
             <ul className="flex gap-2">
               {SOCIALS.map(({ label, Icon }) => (
                 <li key={label}>
-                  <a
-                    href="#"
+                  <Link
+                    href={comingSoonHref("social")}
                     aria-label={label}
                     className="inline-flex size-11 items-center justify-center rounded-ds border border-line text-ink hover:bg-soft"
                   >
                     <Icon size={18} />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

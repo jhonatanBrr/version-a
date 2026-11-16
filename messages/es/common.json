@@ -74,5 +74,30 @@
     "back": "Volver al catálogo",
     "contact": "Contáctanos",
     "illustration": "Un cuestionario bajo una lupa: en el número 404 el cero es una pieza de rompecabezas que falta."
+  },
+  "comingSoon": {
+    "metaTitle": "Sección en preparación",
+    "eyebrow": "Prueba técnica",
+    "title": "Esta sección está en preparación",
+    "titleSection": "«{section}» está en preparación",
+    "text": "Este sitio es una prueba técnica: algunos enlaces solo muestran la navegación completa y por ahora no llevan a una página real.",
+    "available": {
+      "catalog": "Catálogo con búsqueda y filtros",
+      "product": "Página de producto con ediciones y carrito",
+      "checkout": "Checkout de demostración"
+    },
+    "toCatalog": "Ir al catálogo",
+    "toHome": "Volver al inicio",
+    "illustration": "Una página web todavía en borrador: bloques punteados por completar, un lápiz que dibuja y una nota adhesiva con la lista de pendientes.",
+    "sections": {
+      "corporate": "Corporativo",
+      "help": "Ayuda",
+      "platform": "Acceso a la plataforma",
+      "login": "Acceder",
+      "resources": "Recursos",
+      "about": "Quiénes somos",
+      "privacy": "Privacidad",
+      "social": "Redes sociales"
+    }
   }
 }
