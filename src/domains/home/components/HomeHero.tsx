@@ -49,9 +49,11 @@ export function HomeHero({ featured, productCount }: HomeHeroProps) {
           </ul>
         </div>
 
+        {/* Entrance lives on the wrapper so its fill-mode never overrides the hover lift. */}
+        <div className="ds-enter-scale ds-delay-2">
         <article
           aria-label={t("featuredLabel")}
-          className="ds-enter-scale ds-delay-2 group relative flex flex-col overflow-hidden rounded-ds border border-line bg-surface transition-[transform,box-shadow] duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0 shadow-[0_30px_60px_-30px_rgb(var(--ds-shadow)/0.45)]"
+          className="group relative flex flex-col overflow-hidden rounded-ds border border-line bg-surface transition-[transform,box-shadow] duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0 shadow-[0_30px_60px_-30px_rgb(var(--ds-shadow)/0.45)]"
         >
           <div className="relative aspect-[4/3] bg-paper">
             <Image
@@ -89,6 +91,7 @@ export function HomeHero({ featured, productCount }: HomeHeroProps) {
             />
           </div>
         </article>
+        </div>
       </Container>
     </section>
   );

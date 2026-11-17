@@ -75,9 +75,11 @@ export function CatalogBrowser({ products, categories, query, onClearQuery }: Ca
       </p>
 
       {filters.results.length > 0 ? (
-        // Re-keyed on every filter change so the cards replay their staggered entrance.
+        // Re-keyed when category or formats change so the cards replay their staggered entrance.
+        // The search query is left out on purpose: typing must not remount the grid on every
+        // keystroke; cards that appear while searching animate in on their own.
         <ul
-          key={`${filters.category}|${filters.formats.join(",")}|${trimmedQuery}`}
+          key={`${filters.category}|${filters.formats.join(",")}`}
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {filters.results.map((product, index) => (
