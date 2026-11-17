@@ -7,6 +7,7 @@ import Script from "next/script";
 import { themeInitScript } from "@/design-system/hooks/useTheme";
 import { SiteFooter } from "@/design-system/layout/SiteFooter";
 import { SiteHeader } from "@/design-system/layout/SiteHeader";
+import { ThemeSync } from "@/design-system/components/ThemeSync";
 import { CartProvider } from "@/shared/cart/CartProvider";
 import { routing } from "@/shared/i18n/routing";
 import "../globals.css";
@@ -51,6 +52,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>
+        <ThemeSync />
         <a
           href="#contenuto"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-ds focus:bg-primary focus:px-4 focus:py-3 focus:text-on-primary"

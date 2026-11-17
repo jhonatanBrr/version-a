@@ -16,6 +16,17 @@ function subscribe(onChange: () => void) {
   return () => observer.disconnect();
 }
 
+/** Saved theme, or the system preference when nothing valid is stored. */
+export function resolveStoredTheme(): Theme {
+  try {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
+    if (saved === "light" || saved === "dark") return saved;
+  } catch {
+    /* storage unavailable: fall back to the system preference */
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
 function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme;
   try {
